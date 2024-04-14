@@ -162,7 +162,7 @@ let handleUserPublished = async (user, mediaType) => {
   }
   else 
   {
-    document.getElementById('copyBtn').disabled=true
+    // document.getElementById('copyBtn').disabled=true
   }
 
   if (displayFrame.style.display) {

@@ -9,7 +9,8 @@ const chatButton = document.getElementById('chat__button');
 
 let activeMemberContainer = false;
 
-const server="https://videomeet09.netlify.app/"
+const server="https://videomeet09.netlify.app"
+// const server="localhost:5502/index.html"
 
 // let displayName = sessionStorage.getItem('display_name')
 // if(displayName){
@@ -34,10 +35,11 @@ async function encryptData(data, secretKey) {
 //     const decrypted = await CryptoJS.AES.decrypt(decodeURIComponent(encryptedData), secretKey).toString(CryptoJS.enc.Utf8);
 //     return JSON.parse(decrypted);
 // }
-const queryString1 = window.location.search;
-const urlParams1 = new URLSearchParams(queryString1);
-let roomId1 = urlParams1.get("room");
-console.log(roomId1);
+// const queryString1 = window.location.search;
+// const urlParams1 = new URLSearchParams(queryString1);
+// let roomId1 = urlParams1.get("room");
+// // console.log(roomId1);
+
 const copyBtn = document.getElementById('copyBtn');
 
 function copyToClipboard(text) {
@@ -62,7 +64,7 @@ function copyToClipboard(text) {
     
     
     copyBtn.addEventListener('click', async () => {
-      const url=`${server}lobby.html?room=${await encryptData(roomId,secretKey)}`
+      const url=`${server}?room=${await encryptData(roomId,secretKey)}`
       console.log(url);
         const textToCopy = url; // Replace with your pre-defined text
         copyToClipboard(textToCopy);

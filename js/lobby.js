@@ -19,6 +19,15 @@ const secretKey = 'supersecretkey';
 //     }
 // }
 
+const queryString1 = window.location.search;
+const urlParams1 = new URLSearchParams(queryString1);
+let roomId1 = urlParams1.get("room");
+console.log(roomId1);
+if(roomId1)
+{
+    joinform.room.value=roomId1
+}
+
 // Decrypt data
 async function decryptData(encryptedData, secretKey) {
     
@@ -83,12 +92,12 @@ joinform.addEventListener('submit', async (e) => {
 
     sessionStorage.setItem('display_name', e.target.name.value)
 
-    let inviteCode = e.target.room.value
+    let encryptdata = e.target.room.value
     // if(!inviteCode){
     //     inviteCode = String(Math.floor(Math.random() * 10000))
     // }
     // const urlParams = new URLSearchParams(inviteCode);
-    const encryptdata = inviteCode.split('room=')[1];
+    // const encryptdata = inviteCode.split('room=')[1];
     // console.log(encryptdata); 
     if(!encryptdata)
     {
@@ -96,8 +105,8 @@ joinform.addEventListener('submit', async (e) => {
     }
     const data=await decryptData(encryptdata,secretKey)
     // console.log(data);
-    for (const copyBtn of copyBtns) {
-        copyBtn.diabled=true
-    }
+    // for (const copyBtn of copyBtns) {
+    //     copyBtn.diabled=true
+    // }
     window.location = `room.html?room=${data}`
 })
