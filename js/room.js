@@ -9,7 +9,7 @@ const chatButton = document.getElementById('chat__button');
 
 let activeMemberContainer = false;
 
-const server="localhost:5502/client/"
+const server="https://videomeet09.netlify.app/"
 
 // let displayName = sessionStorage.getItem('display_name')
 // if(displayName){
