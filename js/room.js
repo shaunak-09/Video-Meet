@@ -62,7 +62,7 @@ function copyToClipboard(text) {
     
     
     copyBtn.addEventListener('click', async () => {
-      const url=`${server}room.html?room=${await encryptData(roomId,secretKey)}`
+      const url=`${server}lobby.html?room=${await encryptData(roomId,secretKey)}`
       console.log(url);
         const textToCopy = url; // Replace with your pre-defined text
         copyToClipboard(textToCopy);
