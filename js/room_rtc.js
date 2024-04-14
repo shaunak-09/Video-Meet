@@ -37,7 +37,7 @@ let sharingScreen = false;
 let joinRoomInit = async () => {
   try {
     const response = await fetch(
-      "http://localhost:8000/access_token?" +
+      "https://video-meet-inf2.onrender.com/access_token?" +
         new URLSearchParams({
           channelName: roomId,
           uid: uid,
